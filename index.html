@@ -3,24 +3,29 @@
 <head>
 <script type="text/javascript" src="progress.js"></script>
 <style type="text/css">
-.outerDiv {
-    background-color: #dddddd;
-    border-radius: 5px;
-}
-.innerDiv {
-    background-color: silver;
-    width: 0px;
-    border-radius: 5px;
-}
+    /* base definitions, can be overridden via id */
+    .outerDiv {
+        width: 100%;
+        background-color: #dddddd;
+        border-radius: 5px;
+    }
+    .innerDiv {
+        height: inherit;
+        background-color: silver;
+        width: 0;
+        border-radius: 5px;
+        background-image: url("fastChecks/barAnimation/stripes.png");
+    }
+    /* override of base definitions */
+    #progress1 {
+        width: 100%;
+        height: 20px;
+    }
 </style>
 </head>
 <body>
-
-<script type="text/javascript">
-
-</script>
 </body>
-
+</html>
 
 
 
