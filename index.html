@@ -3,6 +3,9 @@
 <head>
 <script type="text/javascript" src="progress.js"></script>
 <style type="text/css">
+    html, body {
+        font-family: Impact, Charcoal, sans-serif;
+    }
     /* base definitions, can be overridden via id */
     .outerDiv {
         width: 100%;
@@ -17,13 +20,82 @@
         background-image: url("fastChecks/barAnimation/stripes.png");
     }
     /* override of base definitions */
-    #progress1 {
+    #progress1, #progress2, #progress3, #progress4, #progress5 {
         width: 100%;
         height: 20px;
     }
+    #progress4 .innerDiv {
+        background-image: url("fastChecks/barAnimation/stripes2.gif");
+    }
+    #progress5 .innerDiv {
+        background-image: none;
+        background-color: green;
+    }
 </style>
+<script type="text/javascript">
+    window.setTimeout(function() {
+        var chargeBar = new Progress.bar({ id: "progress1", autoRemove: false, backgroundSpeed: 5, type: "charge" });
+        chargeBar.renderTo(document.getElementById('chargeBar'));
+
+        var chargeBar2 = new Progress.bar({ id: "progress2", autoRemove: false, backgroundSpeed: -5, type: "charge" });
+        chargeBar2.renderTo(document.getElementById('chargeBar2'));
+
+        var dischargeBar = new Progress.bar({ id: "progress3", autoRemove: false, backgroundSpeed: 5, type: "discharge" });
+        dischargeBar.renderTo(document.getElementById('dischargeBar'));
+
+        var dischargeBar2 = new Progress.bar({ id: "progress4", autoRemove: false, backgroundSpeed: -5, type: "discharge" });
+        dischargeBar2.renderTo(document.getElementById('dischargeBar2'));
+
+        var dischargeBar3 = new Progress.bar({ id: "progress5", autoRemove: false, backgroundSpeed: -5, type: "discharge" });
+        dischargeBar3.renderTo(document.getElementById('dischargeBar3'));
+
+        var percent = 0;
+        window.setInterval(function() {
+            percent = percent + Math.floor(Math.random()*10);
+            percent = percent >= 100 ? 0 : percent;
+            chargeBar.update(percent);
+        }, 500);
+        var percent2 = 0;
+        window.setInterval(function() {
+            percent2 = percent2 + Math.floor(Math.random()*30);
+            percent2 = percent2 >= 100 ? 0 : percent2;
+            chargeBar2.update(percent2);
+        }, 400);
+        var percent3 = 100;
+        window.setInterval(function() {
+            percent3 = percent3 - Math.floor(Math.random()*15);
+            percent3 = percent3 <= 0 ? 100 : percent3;
+            dischargeBar.update(percent3);
+        }, 500);
+        var percent4 = 100;
+        window.setInterval(function() {
+            percent4 = percent4 - Math.floor(Math.random()*20);
+            percent4 = percent4 <= 0 ? 100 : percent4;
+            dischargeBar2.update(percent4);
+        }, 700);
+        var percent5 = 100;
+        window.setInterval(function() {
+            percent5 = percent5 - Math.floor(Math.random()*10);
+            percent5 = percent5 <= 0 ? 100 : percent5;
+            dischargeBar3.update(percent5);
+        }, 700);
+    }, 500)
+</script>
 </head>
 <body>
+    <div style="width: 500px">
+        <h1>progress.js</h1>
+            <h2>charge bar</h2>
+                <div id="chargeBar"></div>
+            <h2>charge bar 2</h2>
+                <div id="chargeBar2"></div>
+            <h2>discharge bar</h2>
+                <div id="dischargeBar"></div>
+            <h2>discharge bar</h2>
+                <div id="dischargeBar2"></div>
+            <h2>discharge bar</h2>
+                <div id="dischargeBar3"></div>
+    </div>
 </body>
 </html>
 
