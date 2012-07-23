@@ -5,6 +5,10 @@
 <style type="text/css">
     html, body {
         font-family: Impact, Charcoal, sans-serif;
+        color: #555;
+    }
+    h2 {
+        margin-bottom: 2px;
     }
     /* base definitions, can be overridden via id */
     .outerDiv {
@@ -57,7 +61,7 @@
         }, 500);
         var percent2 = 0;
         window.setInterval(function() {
-            percent2 = percent2 + Math.floor(Math.random()*30);
+            percent2 = percent2 + Math.floor(Math.random()*10);
             percent2 = percent2 >= 100 ? 0 : percent2;
             chargeBar2.update(percent2);
         }, 400);
@@ -83,7 +87,7 @@
 </script>
 </head>
 <body>
-    <div style="width: 500px">
+    <div style="width: 400px">
         <h1>progress.js</h1>
             <h2>charge bar</h2>
                 <div id="chargeBar"></div>
@@ -93,7 +97,7 @@
                 <div id="dischargeBar"></div>
             <h2>discharge bar</h2>
                 <div id="dischargeBar2"></div>
-            <h2>discharge bar</h2>
+            <h2>discharge bar (solid)</h2>
                 <div id="dischargeBar3"></div>
     </div>
 </body>

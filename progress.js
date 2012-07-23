@@ -3,7 +3,7 @@ var Progress = {};
 Progress.bar = (function(config) {
     var self = this;
     if ("undefined" === typeof config) {
-        console.log('Please give config, like: { id: "progress1", autoRemove: true, removeTimeout: 2000 , backgroundSpeed: 50, type: "charge/discharge" }');
+        console.log('Please give config object, like:\nnew Progress.bar({ id: "progress1", autoRemove: true, removeTimeout: 2000 , backgroundSpeed: 50, type: "discharge" });');
         return false;
     }
     config.type = config.type ? config.type : 'charge';
