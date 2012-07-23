@@ -1,5 +1,5 @@
 # progress.js
-A javascript progress bar / circle with and without percentage
+A javascript progress bar
 
 ## Preface
 Please do not hesitate to inform me about downsides, change requests et cetera. It is no good idea to complain about my script by mumbling curse spells at your screen. Write a comment instead, so I know whats wrong and can fix the problem. 

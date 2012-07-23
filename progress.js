@@ -7,6 +7,7 @@ Progress.bar = (function(config) {
         return false;
     }
     config.type = config.type ? config.type : 'charge';
+    config.id   = config.id ? config.id : 'progress' + Math.floor(Math.random()*9999);
 
     var outerDiv  = createOuterDiv();
     var innerDiv  = createInnerDiv();

@@ -4,9 +4,9 @@ describe('Progress.bar instantiated without config object', function() {
     });
 });
 
-describe('Progress.bar general (with config: { width: "100%", height: "4px", id: "progress1" })', function() {
+describe('Progress.bar general (with config: { id: "progress2" })', function() {
 	beforeEach(function() {
-		config      = { width: "100%", height: "4px", id: "progress1" };
+		config      = { id: "progress2" };
 	    progressBar = Progress.bar(config);
 	    progressBar.renderTo(document.getElementById('testArea'));
 	    renderedProgressBar = document.getElementById(config.id);
@@ -28,6 +28,11 @@ describe('Progress.bar general (with config: { width: "100%", height: "4px", id:
     it('which, when called, appends the progressbar to the given element', function() {
         var testAreaChildren = document.getElementById('testArea').children;
         expect(testAreaChildren[0].getAttribute('class')).toEqual('outerDiv');
+    });
+
+    it('the so appended progress bar (dom node) has the given id', function() {
+        var testAreaChildren = document.getElementById('testArea').children;
+        expect(testAreaChildren[0].getAttribute('id')).toEqual('progress2');
     });
 
     it('which has update method', function() {
@@ -64,9 +69,36 @@ describe('Progress.bar general (with config: { width: "100%", height: "4px", id:
     });
 });
 
-describe('Progress.bar autoRemove without timeout (with config: { width: "100%", height: "4px", id: "progress2", autoRemove: true })', function() {
+describe('Progress.bar general (with config: {})', function() {
+    beforeEach(function() {
+        config      = { };
+        progressBar = Progress.bar(config);
+        progressBar.renderTo(document.getElementById('testArea'));
+        renderedProgressBar = document.getElementById(config.id);
+    });
+
+    afterEach(function() {
+        document.getElementById('testArea').innerHTML = "";
+        delete(progressBar);
+    });
+
+    it('returns a progress bar object', function() {
+        expect(typeof progressBar).toEqual('object');
+    });
+
+    it('which has renderTo method', function() {
+        expect(typeof progressBar.renderTo).toEqual('function');
+    });
+
+    it('which has a random id: progress<number>', function() {
+        var testAreaChildren = document.getElementById('testArea').children;
+        expect(testAreaChildren[0].getAttribute('id')).toMatch(/progress[0-9]{1,4}/);
+    });
+});
+
+describe('Progress.bar autoRemove without timeout (with config: {id: "progress2", autoRemove: true })', function() {
 	beforeEach(function() {
-		config      = { width: "100%", height: "4px", id: "progress2", autoRemove: true };
+		config      = { id: "progress2", autoRemove: true };
 	    progressBar = Progress.bar(config);
 	    progressBar.renderTo(document.getElementById('testArea'));
 	});
@@ -86,9 +118,9 @@ describe('Progress.bar autoRemove without timeout (with config: { width: "100%",
 	});
 });
 
-describe('Progress.bar autoRemove with timeout (with config: {width: "100%", height: "4px", id: "progress2", autoRemove: true, removeTimeout: 900})', function() {
+describe('Progress.bar autoRemove with timeout (with config: { id: "progress2", autoRemove: true, removeTimeout: 900})', function() {
 	beforeEach(function() {
-		config      = { width: "100%", height: "4px", id: "progress2", autoRemove: true, removeTimeout: 900 };
+		config      = { id: "progress2", autoRemove: true, removeTimeout: 900 };
 	    progressBar = Progress.bar(config);
 	    progressBar.renderTo(document.getElementById('testArea'));
 	});
@@ -112,7 +144,7 @@ describe('Progress.bar autoRemove with timeout (with config: {width: "100%", hei
 
 describe("Progress.bar instantiated with type: 'discharge'", function() {
     beforeEach(function() {
-        config      = { width: "100%", height: "4px", id: "progress2", autoRemove: true, type: 'discharge' };
+        config      = { id: "progress2", autoRemove: true, type: 'discharge' };
         progressBar = Progress.bar(config);
         progressBar.renderTo(document.getElementById('testArea'));
         renderedProgressBar = document.getElementById(config.id);
