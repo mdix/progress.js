@@ -96,6 +96,57 @@ describe('Progress.bar general (with config: {})', function() {
     });
 });
 
+describe('Progress.bar with percentage display (with config: { id: "progress6", autoRemove: false, backgroundSpeed: 5, type: "charge", showPercentage: true } )', function() {
+    beforeEach(function() {
+        config      = { id: "progress6", autoRemove: false, backgroundSpeed: 5, type: "charge", showPercentage: true };
+        progressBar = Progress.bar(config);
+        progressBar.renderTo(document.getElementById('testArea'));
+        renderedProgressBar = document.getElementById(config.id);
+    });
+
+    afterEach(function() {
+        document.getElementById('testArea').innerHTML = "";
+        delete(progressBar);
+    });
+
+    it('returns a progress bar object', function() {
+        expect(typeof progressBar).toEqual('object');
+    });
+
+    it('which has renderTo method', function() {
+        expect(typeof progressBar.renderTo).toEqual('function');
+    });
+
+    it('which has a span element that shows the current percentage in percent', function() {
+        progressBar.update(10);
+        expect(renderedProgressBar.getElementsByTagName('span')[0].innerHTML).toBe('10%');
+        progressBar.update(100);
+        expect(renderedProgressBar.getElementsByTagName('span')[0].innerHTML).toBe('100%');
+    });
+
+    it('if type is "charge" it starts with 0%', function() {
+        expect(renderedProgressBar.getElementsByTagName('span')[0].innerHTML).toBe('0%');
+    });
+});
+
+describe('Progress.bar with percentage display (with config: { id: "progress6", autoRemove: false, backgroundSpeed: 5, type: "discharge", showPercentage: true } )', function() {
+    beforeEach(function() {
+        config      = { id: "progress6", autoRemove: false, backgroundSpeed: 5, type: "discharge", showPercentage: true };
+        progressBar = Progress.bar(config);
+        progressBar.renderTo(document.getElementById('testArea'));
+        renderedProgressBar = document.getElementById(config.id);
+    });
+
+    afterEach(function() {
+        document.getElementById('testArea').innerHTML = "";
+        delete(progressBar);
+    });
+
+    it('if type is "discharge" it starts with 100%', function() {
+        expect(renderedProgressBar.getElementsByTagName('span')[0].innerHTML).toBe('100%');
+    });
+});
+
 describe('Progress.bar autoRemove without timeout (with config: {id: "progress2", autoRemove: true })', function() {
 	beforeEach(function() {
 		config      = { id: "progress2", autoRemove: true };
