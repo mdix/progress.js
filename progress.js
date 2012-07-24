@@ -1,11 +1,11 @@
 var Progress = {};
 
 Progress.bar = (function(config) {
-    var self = this;
     if ("undefined" === typeof config) {
         console.log('Please give config object, like:\nnew Progress.bar({ id: "progress1", autoRemove: true, removeTimeout: 2000 , backgroundSpeed: 50, type: "discharge", showPercentage: true });');
-        return false;
+        return;
     }
+    // defaults
     config.type = config.type ? config.type : 'charge';
     config.id   = config.id   ? config.id   : 'progress' + Math.floor(Math.random()*9999);
 
@@ -77,6 +77,7 @@ Progress.bar = (function(config) {
     }
 
     function remove(callback) {
+        window.clearInterval(intervals['backgroundAnimation']);
         var renderedProgressBar = document.getElementById(config.id);
         renderedProgressBar.parentNode.removeChild(renderedProgressBar);
     }

@@ -19,12 +19,12 @@ No stable version at the moment.
 
 ## Configuration
 The following configuration options are available:
-`id:` - String - the id of the progress bar outer div (can be used to apply custom styles)
-`autoRemove:` - Boolean - removes the progress bar once it reaches 100 (if type: 'charge') or 0 (if type: 'discharge')
-`removeTimeout:` - Integer - if autoremove is true, it waits for the set milliseconds to remove the progress bar
-`backgroundSpeed:` - Integer - the speed with which the background moves, try with low integer values
-`type:` - String - the type of the bar, either 'charge' (from 0 to 100) or 'discharge' (from 100 to 0)
-`showPercentage:` - Boolean - shows the current percentage value in the center of the bar
+`id:`              - String  -  the id of the progress bar outer div (can be used to apply custom styles)
+`autoRemove:`      - Boolean -  removes the progress bar once it reaches 100 (if type: 'charge') or 0 (if type: 'discharge')
+`removeTimeout:`   - Integer -  if autoremove is true, it waits for the set milliseconds to remove the progress bar
+`backgroundSpeed:` - Integer -  the speed with which the background moves, try with low integer values
+`type:`            - String  -  the type of the bar, either 'charge' (from 0 to 100) or 'discharge' (from 100 to 0)
+`showPercentage:`  - Boolean -  shows the current percentage value in the center of the bar
 
 Just build a config object in which the configuration options reside (any order): `{id: 'yourId', autoRemove: true, type: 'discharge', showPercentage: true}` and use it to replace 'configObj' in the instructions (see line 3 above).
 
