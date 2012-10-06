@@ -1,0 +1,5 @@
+change progressBar to be able to inject it into a class 
+change renderTo method or add 'getMarkup' method
+add fix time to run like '20 seconds'
+api to reset / change the progress bar
+add method to get current value
