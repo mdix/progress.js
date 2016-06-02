@@ -35,6 +35,9 @@ Progress.bar = (function(config) {
     }
 
     function update(percent) {
+        if (document.getElementById(config.id) === null) {
+            return;
+        }
         percent = percent > 100 ? 100 : percent < 0 ? 0 : percent;
         innerDiv.style.width = percent + '%';
         if (config.showPercentage) {
