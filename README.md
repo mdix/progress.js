@@ -38,4 +38,4 @@ Just build a config object in which the configuration options reside (any order)
 A demo can be found here: [http://github.dixpix.de/progress.js/](http://github.dixpix.de/progress.js/).
 
 ## Tests
-progress.js is tested with [Jasmine BDD testing framework](https://github.com/pivotal/jasmine) which is not included. You can download Jasmine [here](http://pivotal.github.com/jasmine/download.html) and place the contents in test/lib/. To run the tests, open test/specRunner.html in your browser.s
+progress.js is tested with [Jasmine BDD testing framework](https://github.com/jasmine/jasmine) which is not included. You can download Jasmine [here](https://github.com/jasmine/jasmine/releases) and place the contents in test/lib/. To run the tests, open test/specRunner.html in your browser.s
